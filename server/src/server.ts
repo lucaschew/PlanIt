@@ -11,7 +11,13 @@ import MongoStore from 'connect-mongo'
 // Create express app
 const app = express()
 app.use(express.json())
-app.use(cors())
+app.use(
+  cors({
+    origin: 'https://mcgill-planit.vercel.app',
+    methods: 'GET,POST,PATCH,PUT,DELETE',
+    credentials: true, // Include cookies if necessary
+  })
+)
 
 // Connect to mongoose
 const clientP = mongoose
@@ -29,18 +35,6 @@ const clientP = mongoose
     })
     return m.connection.getClient()
   })
-
-// Allow websites to access API
-app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*')
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-  )
-  res.header('Access-Control-Allow-credentials', 'true')
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, UPDATE')
-  next()
-})
 
 // Middleware
 // Print the request payload to console

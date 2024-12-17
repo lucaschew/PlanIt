@@ -63,7 +63,7 @@ const RegisterPage: FC = () => {
   useEffect(() => {
     const getAuthenticated = () => {
       axios
-        .get(`${process.env.REACT_APP_API_URL}/api/user`)
+        .get(`/api/user`)
         .then((e) => {
           navigate('/calendar')
         })
@@ -122,10 +122,7 @@ const RegisterPage: FC = () => {
       const loginCredentials = { email, password }
 
       await axios
-        .post(
-          `${process.env.REACT_APP_API_URL}/api/user/signup`,
-          loginCredentials
-        )
+        .post(`/api/user/signup`, loginCredentials)
         .then(() => {
           navigate('/login')
         })

@@ -55,7 +55,7 @@ const LoginPage: FC = () => {
   useEffect(() => {
     const getAuthenticated = () => {
       axios
-        .get(`${process.env.REACT_APP_API_URL}/api/user`)
+        .get(`/api/user`)
         .then((e) => {
           navigate('/calendar')
         })

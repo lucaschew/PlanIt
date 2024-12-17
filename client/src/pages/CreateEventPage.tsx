@@ -165,7 +165,7 @@ const AddEventPage: FC = () => {
 
     const getAuthenticated = () => {
       axios
-        .get(`${process.env.REACT_APP_API_URL}/api/user`)
+        .get(`/api/user`)
         .then(() => {
           getTheme().then((t) => {
             setTheme(t)
@@ -179,7 +179,7 @@ const AddEventPage: FC = () => {
 
     const getTags = () => {
       axios
-        .get(`${process.env.REACT_APP_API_URL}/api/tag/getAlltags`)
+        .get(`/api/tag/getAlltags`)
         .then((res) => {
           let colorList: Color[] = res.data.map(
             (tag: { _id: string; name: string; color: string }) => {
@@ -250,7 +250,7 @@ const AddEventPage: FC = () => {
         tagId: tagId ? tagId : null,
       }
       await axios
-        .post(`${process.env.REACT_APP_API_URL}/api/event/createEvent`, event)
+        .post(`/api/event/createEvent`, event)
         .then((res) => {
           navigate('/calendar')
         })

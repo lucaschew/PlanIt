@@ -16,7 +16,7 @@ async function getAllTodos(): Promise<Todo[]> {
 
 async function createTodo(name: string): Promise<Todo> {
   return await axios
-    .post(`${process.env.REACT_APP_API_URL}/api/todo/createTodo`, {
+    .post(`/api/todo/createTodo`, {
       todo: name,
     })
     .catch(() => {

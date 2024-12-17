@@ -6,9 +6,7 @@ import { ThemeDb } from '../models/ThemeDb'
 
 export default async function getTheme(): Promise<Theme> {
   try {
-    const response = await axios.get<ThemeDb>(
-      `${process.env.REACT_APP_API_URL}/api/theme`
-    )
+    const response = await axios.get<ThemeDb>(`/api/theme`)
     switch (response.data.theme) {
       case 'light':
         return defaultTheme
