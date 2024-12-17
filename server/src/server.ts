@@ -56,8 +56,7 @@ app.use(
     cookie: {
       secure: true,
       sameSite: 'none',
-      domain: 'mcgill-planit.vercel.app',
-      path: '/login',
+      domain: '.mcgill-planit.vercel.app',
       maxAge: 60 * 60 * 1000,
     },
     rolling: true,
