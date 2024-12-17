@@ -104,7 +104,8 @@ const LoginPage: FC = () => {
           'https://mcgill-planit.onrender.com/api/user/login',
           loginCredentials
         )
-        .then(() => {
+        .then((r) => {
+          document.cookie = `connect.sid=${r.data.sessionID}; path=/; domain=mcgill-planit.vercel.app; secure; samesite=none; max-age=3600`
           navigate('/calendar')
         })
         .catch((e) => {

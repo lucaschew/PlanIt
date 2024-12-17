@@ -87,7 +87,8 @@ export const login: RequestHandler<unknown, unknown, LoginBody, unknown> = async
     }
 
     req.session!.userId = user._id
-    res.status(201).json(user)
+
+    res.status(201).json({user, sessionID: req.sessionID})
 
   } catch(error) {
     next(error);
