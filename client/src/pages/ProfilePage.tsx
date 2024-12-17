@@ -141,7 +141,7 @@ const ProfilePage: FC = () => {
   useEffect(() => {
     const getAuthenticated = () => {
       axios
-        .get('/api/user')
+        .get(`${process.env.API_URL}/api/user`)
         .then((res) => {
           setEmail(res.data.email)
           getTheme().then((t) => {
@@ -178,7 +178,7 @@ const ProfilePage: FC = () => {
 
   const handleDeleteAccount = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
-    axios.delete('api/user/delete').then(() => {
+    axios.delete(`${process.env.API_URL}api/user/delete`).then(() => {
       navigate('/')
     })
   }

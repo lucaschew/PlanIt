@@ -5,18 +5,19 @@ import { Tag } from '../models/Tag'
 
 async function getAllTags(): Promise<Tag[]> {
   try {
-    const response = await axios.get<Tag[]>('/api/tag/getAllTags')
+    const response = await axios.get<Tag[]>(
+      `${process.env.API_URL}/api/tag/getAllTags`
+    )
     const items: Tag[] = response.data
     return items
   } catch (error) {
-    console.error(error)
     return []
   }
 }
 
 async function createTag(name: string, color: string): Promise<Tag> {
   return await axios
-    .post('/api/tag/createTag', {
+    .post(`${process.env.API_URL}/api/tag/createTag`, {
       name,
       color,
       isVisible: true,
@@ -33,7 +34,7 @@ async function updateTag(tag: Tag) {
   const { name, color, _id } = tag
 
   return await axios
-    .patch(`/api/tag/updateTag/${_id}`, {
+    .patch(`${process.env.API_URL}/api/tag/updateTag/${_id}`, {
       name,
       color,
     })
@@ -47,7 +48,7 @@ async function updateTag(tag: Tag) {
 
 async function toggleTagVisibility(tag: Tag) {
   return await axios
-    .patch(`/api/tag/toggleVisibility/${tag._id}`)
+    .patch(`${process.env.API_URL}/api/tag/toggleVisibility/${tag._id}`)
     .catch(() => {
       return false
     })
@@ -58,7 +59,7 @@ async function toggleTagVisibility(tag: Tag) {
 
 async function deleteTag(tag: Tag) {
   return await axios
-    .delete(`/api/tag/${tag._id}`)
+    .delete(`${process.env.API_URL}/api/tag/${tag._id}`)
     .catch(() => {
       return false
     })

@@ -63,7 +63,7 @@ const RegisterPage: FC = () => {
   useEffect(() => {
     const getAuthenticated = () => {
       axios
-        .get('/api/user')
+        .get(`${process.env.API_URL}/api/user`)
         .then((e) => {
           navigate('/calendar')
         })

@@ -2,6 +2,6 @@
 
 import axios from 'axios'
 
-export default async function getAuthenticated(): Promise<boolean> {
-  return axios.get('/api/user')
+export default async function getAuthenticated(): Promise<any> {
+  return axios.get(`${process.env.API_URL}/api/user`)
 }
