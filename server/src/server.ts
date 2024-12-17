@@ -56,7 +56,7 @@ app.use(
     saveUninitialized: false,
     cookie: {
       secure: true,
-      httpOnly: true,
+      httpOnly: false,
       sameSite: 'none',
       domain: 'mcgill-planit.vercel.app',
       maxAge: 60 * 60 * 1000,
