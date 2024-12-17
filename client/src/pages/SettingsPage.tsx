@@ -4,11 +4,11 @@ import { FC, useEffect, useState } from 'react'
 import NavBar from '../components/NavBar'
 import defaultTheme, { darkTheme, Theme } from '../styles/theme'
 import { useNavigate } from 'react-router-dom'
-import getAuthenticated from '../apis/auth'
+import getAuthenticated from '../api/auth'
 import styled, { ThemeProvider } from 'styled-components'
 import axios from 'axios'
 import LoadingComponent from '../components/LoadingComponent'
-import getTheme from '../apis/themes'
+import getTheme from '../api/themes'
 
 const PageContainer = styled.div`
   align-items: stretch;

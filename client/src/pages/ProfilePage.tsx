@@ -8,7 +8,7 @@ import InputField from '../components/InputField'
 import SubmitButton from '../components/SubmitButton'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import getTheme from '../apis/themes'
+import getTheme from '../api/themes'
 import SuccessMessage from '../components/SuccessMessage'
 import LoadingComponent from '../components/LoadingComponent'
 

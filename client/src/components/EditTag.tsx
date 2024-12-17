@@ -4,7 +4,7 @@ import React, { Dispatch, SetStateAction, useState } from 'react'
 import styled, { useTheme } from 'styled-components'
 import InputField from './InputField'
 import { Tag } from '../models/Tag'
-import { createTag, deleteTag, updateTag } from '../apis/tags'
+import { createTag, deleteTag, updateTag } from '../api/tags'
 import ColorPicker from './ColorPicker'
 import { colors } from '../helpers/tagColors'
 

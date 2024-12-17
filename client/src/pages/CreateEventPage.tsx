@@ -18,7 +18,7 @@ import getStartDate from '../helpers/getStartDate'
 import getEndDate from '../helpers/getEndDate'
 import SubmitButton from '../components/SubmitButton'
 import fixTimeOffetset from '../helpers/fixTimeOffset'
-import getTheme from '../apis/themes'
+import getTheme from '../api/themes'
 import LoadingComponent from '../components/LoadingComponent'
 
 const PageContainer = styled.div`

@@ -5,7 +5,7 @@ import { Event } from '../models/Event'
 import defaultTheme from '../styles/theme'
 import { Dispatch, SetStateAction, useState } from 'react'
 import { Tag } from '../models/Tag'
-import { deleteEvent } from '../apis/events'
+import { deleteEvent } from '../api/events'
 import { useNavigate } from 'react-router-dom'
 
 const EventContainer = styled.div<{ $backgroundColor: string }>`
