@@ -55,7 +55,7 @@ const LoginPage: FC = () => {
   useEffect(() => {
     const getAuthenticated = () => {
       axios
-        .get(`${process.env.API_URL}/api/user`)
+        .get(`${process.env.REACT_APP_API_URL}/api/user`)
         .then((e) => {
           navigate('/calendar')
         })
@@ -100,11 +100,15 @@ const LoginPage: FC = () => {
       const loginCredentials = { email, password }
 
       await axios
-        .post('/api/user/login', loginCredentials)
+        .post(
+          'https://mcgill-planit.onrender.com/api/user/login',
+          loginCredentials
+        )
         .then(() => {
           navigate('/calendar')
         })
         .catch((e) => {
+          console.log(e)
           setEmailError(true)
           setPasswordError(true)
           setEmailErrorMessage('')

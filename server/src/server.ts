@@ -30,6 +30,18 @@ const clientP = mongoose
     return m.connection.getClient()
   })
 
+// Allow websites to access API
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  )
+  res.header('Access-Control-Allow-credentials', true)
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, UPDATE')
+  next()
+})
+
 // Middleware
 // Print the request payload to console
 app.use((req: Request, res: Response, next: NextFunction) => {

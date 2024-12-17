@@ -93,7 +93,7 @@ export default function GearDropdown(props: GearDropdownProps) {
   }
 
   const logout = () => {
-    axios.post(`${process.env.API_URL}/api/user/logout`).then(() => {
+    axios.post(`${process.env.REACT_APP_API_URL}/api/user/logout`).then(() => {
       pageRouter('/')
     })
   }

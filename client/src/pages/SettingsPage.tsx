@@ -68,7 +68,7 @@ const SettingsPage: FC = () => {
     if (newtheme === 'light') setTheme(defaultTheme)
     if (newtheme === 'dark') setTheme(darkTheme)
     axios
-      .patch(`${process.env.API_URL}/api/theme/`, { theme: newtheme })
+      .patch(`${process.env.REACT_APP_API_URL}/api/theme/`, { theme: newtheme })
       .catch((e) => {
         setTitleError(true)
         setTitleErrorMessage('Theme could not be changed')
