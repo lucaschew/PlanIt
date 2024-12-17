@@ -3,5 +3,5 @@
 import axios from 'axios'
 
 export default async function getAuthenticated(): Promise<any> {
-  return axios.get(`/api/user`)
+  return axios.get(`/apis/user`)
 }

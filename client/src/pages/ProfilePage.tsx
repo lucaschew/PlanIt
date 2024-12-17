@@ -8,7 +8,7 @@ import InputField from '../components/InputField'
 import SubmitButton from '../components/SubmitButton'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import getTheme from '../api/themes'
+import getTheme from '../apis/themes'
 import SuccessMessage from '../components/SuccessMessage'
 import LoadingComponent from '../components/LoadingComponent'
 
@@ -141,7 +141,7 @@ const ProfilePage: FC = () => {
   useEffect(() => {
     const getAuthenticated = () => {
       axios
-        .get(`/api/user`)
+        .get(`/apis/user`)
         .then((res) => {
           setEmail(res.data.email)
           getTheme().then((t) => {
@@ -215,7 +215,7 @@ const ProfilePage: FC = () => {
       const newLoginCredentials = { email, password: oldPassword, newPassword }
 
       await axios
-        .patch('/api/user/updatePassword', newLoginCredentials)
+        .patch('/apis/user/updatePassword', newLoginCredentials)
         .then(() => {
           setSuccess(true)
         })

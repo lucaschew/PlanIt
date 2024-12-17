@@ -4,11 +4,11 @@ import { FC, useEffect, useState } from 'react'
 import NavBar from '../components/NavBar'
 import defaultTheme, { darkTheme, Theme } from '../styles/theme'
 import { useNavigate } from 'react-router-dom'
-import getAuthenticated from '../api/auth'
+import getAuthenticated from '../apis/auth'
 import styled, { ThemeProvider } from 'styled-components'
 import axios from 'axios'
 import LoadingComponent from '../components/LoadingComponent'
-import getTheme from '../api/themes'
+import getTheme from '../apis/themes'
 
 const PageContainer = styled.div`
   align-items: stretch;
@@ -67,7 +67,7 @@ const SettingsPage: FC = () => {
   const changeTheme = (newtheme: string) => {
     if (newtheme === 'light') setTheme(defaultTheme)
     if (newtheme === 'dark') setTheme(darkTheme)
-    axios.patch(`/api/theme/`, { theme: newtheme }).catch((e) => {
+    axios.patch(`/apis/theme/`, { theme: newtheme }).catch((e) => {
       setTitleError(true)
       setTitleErrorMessage('Theme could not be changed')
     })

@@ -18,7 +18,7 @@ import getStartDate from '../helpers/getStartDate'
 import getEndDate from '../helpers/getEndDate'
 import SubmitButton from '../components/SubmitButton'
 import fixTimeOffetset from '../helpers/fixTimeOffset'
-import getTheme from '../api/themes'
+import getTheme from '../apis/themes'
 import LoadingComponent from '../components/LoadingComponent'
 
 const PageContainer = styled.div`
@@ -165,7 +165,7 @@ const AddEventPage: FC = () => {
 
     const getAuthenticated = () => {
       axios
-        .get(`/api/user`)
+        .get(`/apis/user`)
         .then(() => {
           getTheme().then((t) => {
             setTheme(t)
@@ -179,7 +179,7 @@ const AddEventPage: FC = () => {
 
     const getTags = () => {
       axios
-        .get(`/api/tag/getAlltags`)
+        .get(`/apis/tag/getAlltags`)
         .then((res) => {
           let colorList: Color[] = res.data.map(
             (tag: { _id: string; name: string; color: string }) => {
@@ -250,7 +250,7 @@ const AddEventPage: FC = () => {
         tagId: tagId ? tagId : null,
       }
       await axios
-        .post(`/api/event/createEvent`, event)
+        .post(`/apis/event/createEvent`, event)
         .then((res) => {
           navigate('/calendar')
         })
@@ -279,7 +279,7 @@ const AddEventPage: FC = () => {
         tagId,
       }
       await axios
-        .patch(`/api/event/updateEvent/${state.prevEvent._id}`, event)
+        .patch(`/apis/event/updateEvent/${state.prevEvent._id}`, event)
         .then(() => {
           navigate('/calendar')
         })

@@ -3,7 +3,7 @@
 import React, { Dispatch, SetStateAction, useState } from 'react'
 import styled from 'styled-components'
 import InputField from './InputField'
-import { createTodo, deleteTodo, updateTodo } from '../api/todos'
+import { createTodo, deleteTodo, updateTodo } from '../apis/todos'
 import { Todo } from '../models/Todo'
 
 const FormContainer = styled.div`

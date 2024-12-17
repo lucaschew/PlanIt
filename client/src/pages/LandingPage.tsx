@@ -77,7 +77,7 @@ const LandingPage: FC = () => {
   useEffect(() => {
     const getAuthenticated = () => {
       axios
-        .get(`/api/user`)
+        .get(`/apis/user`)
         .then((e) => {
           navigate('/calendar')
         })

@@ -5,7 +5,7 @@ import { Todo } from '../models/Todo'
 
 async function getAllTodos(): Promise<Todo[]> {
   try {
-    const response = await axios.get<Todo[]>('/api/todo/getAllTodos')
+    const response = await axios.get<Todo[]>('/apis/todo/getAllTodos')
     const items: Todo[] = response.data
     return items
   } catch (error) {
@@ -16,7 +16,7 @@ async function getAllTodos(): Promise<Todo[]> {
 
 async function createTodo(name: string): Promise<Todo> {
   return await axios
-    .post(`/api/todo/createTodo`, {
+    .post(`/apis/todo/createTodo`, {
       todo: name,
     })
     .catch(() => {
@@ -31,7 +31,7 @@ async function updateTodo(t: Todo) {
   const { todo } = t
 
   return await axios
-    .patch(`/api/todo/updateTodo/${t._id}`, {
+    .patch(`/apis/todo/updateTodo/${t._id}`, {
       todo,
     })
     .catch(() => {
@@ -44,7 +44,7 @@ async function updateTodo(t: Todo) {
 
 async function checkTodo(todo: Todo) {
   return await axios
-    .patch(`/api/todo/checkTodo/${todo._id}`)
+    .patch(`/apis/todo/checkTodo/${todo._id}`)
     .catch(() => {
       return false
     })
@@ -55,7 +55,7 @@ async function checkTodo(todo: Todo) {
 
 async function deleteTodo(todo: Todo) {
   return await axios
-    .delete(`/api/todo/${todo._id}`)
+    .delete(`/apis/todo/${todo._id}`)
     .catch(() => {
       return false
     })

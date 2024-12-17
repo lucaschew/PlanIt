@@ -55,7 +55,7 @@ const LoginPage: FC = () => {
   useEffect(() => {
     const getAuthenticated = () => {
       axios
-        .get(`/api/user`)
+        .get(`/apis/user`)
         .then((e) => {
           navigate('/calendar')
         })
@@ -101,7 +101,7 @@ const LoginPage: FC = () => {
 
       await axios
         .post(
-          'https://mcgill-planit.onrender.com/api/user/login',
+          'https://mcgill-planit.onrender.com/apis/user/login',
           loginCredentials
         )
         .then((r) => {

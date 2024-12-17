@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/api/:path*",
+      "source": "/apis/:path*",
       "destination": "https://mcgill-planit.onrender.com/api/:path*"
     }
   ]
