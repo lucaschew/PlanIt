@@ -13,7 +13,7 @@ const app = express()
 app.use(express.json())
 app.use(
   cors({
-    origin: 'https://mcgill-planit.vercel.app/',
+    origin: 'https://mcgill-planit.vercel.app',
     methods: 'GET,POST,PATCH,DELETE',
     credentials: true, // Include cookies if necessary
   })
