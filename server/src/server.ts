@@ -58,7 +58,7 @@ app.use(
       secure: true,
       httpOnly: false,
       sameSite: 'none',
-      domain: 'www.lucaschew.dev',
+      domain: 'mcgill-planit.onrender.com',
       maxAge: 60 * 60 * 1000,
     },
     rolling: true,
