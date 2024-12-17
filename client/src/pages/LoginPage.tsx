@@ -100,10 +100,7 @@ const LoginPage: FC = () => {
       const loginCredentials = { email, password }
 
       await axios
-        .post(
-          'https://mcgill-planit.onrender.com/api/user/login',
-          loginCredentials
-        )
+        .post('/api/user/login', loginCredentials)
         .then((r) => {
           document.cookie = `connect.sid=${r.data.sessionID}; path=/; max-age=3600`
           navigate('/calendar')

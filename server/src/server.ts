@@ -13,7 +13,7 @@ const app = express()
 app.use(express.json())
 app.use(
   cors({
-    origin: 'https://mcgill-planit.vercel.app',
+    origin: 'https://lucaschew.dev',
     methods: 'GET,POST,PATCH,DELETE',
     credentials: true, // Include cookies if necessary
   })
@@ -58,7 +58,7 @@ app.use(
       secure: true,
       httpOnly: false,
       sameSite: 'none',
-      domain: 'mcgill-planit.vercel.app',
+      domain: 'lucaschew.dev',
       maxAge: 60 * 60 * 1000,
     },
     rolling: true,
