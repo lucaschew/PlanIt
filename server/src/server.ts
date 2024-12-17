@@ -47,6 +47,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 })
 
 // Handles login session
+app.set('trust proxy', 1) // trust first proxy
 app.use(
   session({
     secret: process.env.SESSION_SECRET as string,
