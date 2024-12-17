@@ -79,7 +79,8 @@ const LandingPage: FC = () => {
       axios
         .get('/api/user')
         .then((e) => {
-          navigate('/calendar')
+          console.log(e)
+          //navigate('/calendar')
         })
         .catch((e) => {})
     }
