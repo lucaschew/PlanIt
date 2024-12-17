@@ -141,7 +141,7 @@ const ProfilePage: FC = () => {
   useEffect(() => {
     const getAuthenticated = () => {
       axios
-        .get(`/apis/user`)
+        .get(`/api/user`)
         .then((res) => {
           setEmail(res.data.email)
           getTheme().then((t) => {
@@ -215,7 +215,7 @@ const ProfilePage: FC = () => {
       const newLoginCredentials = { email, password: oldPassword, newPassword }
 
       await axios
-        .patch('/apis/user/updatePassword', newLoginCredentials)
+        .patch('/api/user/updatePassword', newLoginCredentials)
         .then(() => {
           setSuccess(true)
         })

@@ -165,7 +165,7 @@ const AddEventPage: FC = () => {
 
     const getAuthenticated = () => {
       axios
-        .get(`/apis/user`)
+        .get(`/api/user`)
         .then(() => {
           getTheme().then((t) => {
             setTheme(t)
@@ -179,7 +179,7 @@ const AddEventPage: FC = () => {
 
     const getTags = () => {
       axios
-        .get(`/apis/tag/getAlltags`)
+        .get(`/api/tag/getAlltags`)
         .then((res) => {
           let colorList: Color[] = res.data.map(
             (tag: { _id: string; name: string; color: string }) => {
@@ -250,7 +250,7 @@ const AddEventPage: FC = () => {
         tagId: tagId ? tagId : null,
       }
       await axios
-        .post(`/apis/event/createEvent`, event)
+        .post(`/api/event/createEvent`, event)
         .then((res) => {
           navigate('/calendar')
         })
@@ -279,7 +279,7 @@ const AddEventPage: FC = () => {
         tagId,
       }
       await axios
-        .patch(`/apis/event/updateEvent/${state.prevEvent._id}`, event)
+        .patch(`/api/event/updateEvent/${state.prevEvent._id}`, event)
         .then(() => {
           navigate('/calendar')
         })

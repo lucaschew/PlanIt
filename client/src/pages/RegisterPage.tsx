@@ -63,7 +63,7 @@ const RegisterPage: FC = () => {
   useEffect(() => {
     const getAuthenticated = () => {
       axios
-        .get(`/apis/user`)
+        .get(`/api/user`)
         .then((e) => {
           navigate('/calendar')
         })
@@ -122,7 +122,7 @@ const RegisterPage: FC = () => {
       const loginCredentials = { email, password }
 
       await axios
-        .post(`/apis/user/signup`, loginCredentials)
+        .post(`/api/user/signup`, loginCredentials)
         .then(() => {
           navigate('/login')
         })

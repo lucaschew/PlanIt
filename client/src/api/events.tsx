@@ -11,7 +11,7 @@ async function createEvent(
   tagId?: string
 ): Promise<Event> {
   return await axios
-    .post(`/apis/event/createEvent`, {
+    .post(`/api/event/createEvent`, {
       title,
       description: desc,
       startDate: startDate.toISOString(),
@@ -30,7 +30,7 @@ async function updateEvent(event: Event) {
   const { title, description, startDate, endDate, tagId, _id } = event
 
   return await axios
-    .patch(`/apis/event/updateEvent/${_id}`, {
+    .patch(`/api/event/updateEvent/${_id}`, {
       title,
       description,
       startDate: startDate.toISOString(),
@@ -47,7 +47,7 @@ async function updateEvent(event: Event) {
 
 async function getAllEvents(): Promise<Event[]> {
   try {
-    const response = await axios.get<Event[]>(`/apis/event/getAllEvents`)
+    const response = await axios.get<Event[]>(`/api/event/getAllEvents`)
     const items: Event[] = response.data
     return items
   } catch (error) {
@@ -61,7 +61,7 @@ async function getEventsFromMonthYear(
 ): Promise<Event[]> {
   try {
     const response = await axios.get<Event[]>(
-      `/apis/event/get/${month}%2F${year}`
+      `/api/event/get/${month}%2F${year}`
     )
     const items: Event[] = response.data
     return items
@@ -72,7 +72,7 @@ async function getEventsFromMonthYear(
 
 async function deleteEvent(event: Event) {
   return await axios
-    .delete(`/apis/event/${event._id}`)
+    .delete(`/api/event/${event._id}`)
     .catch(() => {
       return false
     })
