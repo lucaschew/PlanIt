@@ -55,9 +55,8 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: true,
-      sameSite: 'none',
-      domain: '*',
+      sameSite: 'lax',
+      domain: 'mcgill-planit.vercel.app',
       maxAge: 60 * 60 * 1000,
     },
     rolling: true,
