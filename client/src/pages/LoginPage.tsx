@@ -102,7 +102,6 @@ const LoginPage: FC = () => {
       await axios
         .post('/api/user/login', loginCredentials)
         .then((r) => {
-          document.cookie = `connect.sid=${r.data.sessionID}; path=/; max-age=3600`
           navigate('/calendar')
         })
         .catch((e) => {
