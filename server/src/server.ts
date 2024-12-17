@@ -57,7 +57,7 @@ app.use(
     cookie: {
       secure: true,
       sameSite: 'none',
-      domain: '.vercel.app',
+      domain: '*',
       maxAge: 60 * 60 * 1000,
     },
     rolling: true,
