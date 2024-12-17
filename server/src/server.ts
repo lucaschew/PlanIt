@@ -14,7 +14,7 @@ app.use(express.json())
 app.use(
   cors({
     origin: 'https://mcgill-planit.vercel.app',
-    methods: 'GET,POST,PATCH,PUT,DELETE',
+    methods: 'GET,POST,PATCH,DELETE',
     credentials: true, // Include cookies if necessary
   })
 )
@@ -57,6 +57,7 @@ app.use(
       secure: true,
       sameSite: 'none',
       domain: 'mcgill-planit.vercel.app',
+      path: '/login',
       maxAge: 60 * 60 * 1000,
     },
     rolling: true,
