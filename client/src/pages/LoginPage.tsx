@@ -105,7 +105,7 @@ const LoginPage: FC = () => {
           loginCredentials
         )
         .then((r) => {
-          document.cookie = `connect.sid=${r.data.sessionID}; path=/; domain=mcgill-planit.vercel.app; secure; samesite=none; max-age=3600`
+          document.cookie = `connect.sid=${r.data.sessionID}; path=/; max-age=3600`
           navigate('/calendar')
         })
         .catch((e) => {
