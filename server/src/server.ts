@@ -49,11 +49,13 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 // Handles login session
 app.use(
   session({
+    name: 'connect.sid',
     secret: process.env.SESSION_SECRET as string,
     resave: false,
     saveUninitialized: false,
     cookie: {
       sameSite: 'none',
+      secure: true,
       maxAge: 60 * 60 * 1000,
     },
     rolling: true,
